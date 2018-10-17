@@ -29,7 +29,7 @@
     </table>
 
     <!-- Graduate Form -->
-    <div class="card my-4" ng-show="grade == null">
+    <div class="card my-4" ng-show="myGrade == null">
         <h5 class="card-header">Leave a Grade:</h5>
         <div class="card-body">
             <a ui-sref="home" ng-show="!$storage.autenticated && $storage.user == null" class="btn btn-block btn-info">Create account Or Sign In</a>
@@ -38,7 +38,7 @@
                 <input type="text" hidden ng-model="grade.clientId" class="form-control" name="clientId" ng-value="$storage.user.id" required="required">
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="foodQuality">Food Quality</label>
+                        <label for="foodQuality">Food</label>
                         <div class="input-group">
                             <input type="number" ng-model="grade.foodQuality" min="0" max="20" integer class="form-control" name="foodQuality" id="foodQuality" required="required">
                             <div class="input-group-append">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="roomQuality">Room Quality</label>
+                        <label for="roomQuality">Room</label>
                         <div class="input-group">
                             <input type="number" ng-model="grade.roomQuality" min="0" max="20" integer class="form-control" name="roomQuality" id="roomQuality" required="required">
                             <div class="input-group-append">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="serviceQuality">Service Quality</label>
+                        <label for="serviceQuality">Service</label>
                         <div class="input-group">
                             <input type="number" ng-model="grade.serviceQuality" min="0" max="20" integer class="form-control" name="serviceQuality" id="serviceQuality" required="required">
                             <div class="input-group-append">
@@ -66,14 +66,12 @@
                     </div>
                 </div>
                 <div class="form-row justify-content-center">
-                    <div class="form-group row">
-                        <label for="mean" class="col-sm-4 col-form-label">Moyenne</label>
-                        <div class="col-sm-4">
-                            <div class="input-group">
-                                <input type="number" readonly ng-value="(grade.foodQuality + grade.roomQuality + grade.serviceQuality)/3" min="0" max="20" class="form-control" id="mean">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">/ 20</span>
-                                </div>
+                    <div class="form-group col-md-4">
+                        <label for="mean">Average</label>
+                        <div class="input-group">
+                            <input type="number" readonly ng-value="((grade.foodQuality + grade.roomQuality + grade.serviceQuality)/3) | number:0" class="form-control" id="mean">
+                            <div class="input-group-append">
+                                <span class="input-group-text">/ 20</span>
                             </div>
                         </div>
                     </div>
@@ -84,22 +82,26 @@
     </div>
 
     <!-- Grade Detail -->
-    <div class="card my-4" ng-show="grade != null">
+    <div class="card my-4" ng-show="myGrade != null">
         <h5 class="card-header">My Grade for {{ restaurant.name }}:</h5>
         <div class="card-body">
             <table class="table table-striped table-responsive-md vertical">
                 <tbody>
                     <tr>
                         <th scope="row">Food Quality</th>
-                        <td>{{grade.foodQuality}}</td>
+                        <td>{{myGrade.foodQuality}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Room Quality</th>
-                        <td>{{grade.roomQuality}}</td>
+                        <td>{{myGrade.roomQuality}}</td>
                     </tr>
                     <tr>
                         <th scope="row">Service Quality</th>
-                        <td>{{grade.serviceQuality}}</td>
+                        <td>{{myGrade.serviceQuality}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Average</th>
+                        <td>{{myGrade.quality}}</td>
                     </tr>
                 </tbody>
             </table>

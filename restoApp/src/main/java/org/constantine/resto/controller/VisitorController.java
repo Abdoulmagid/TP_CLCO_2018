@@ -1,6 +1,6 @@
 package org.constantine.resto.controller;
 
-import org.constantine.resto.exception.CustomError;
+import org.constantine.resto.error.CustomError;
 import org.constantine.resto.model.SignInRequest;
 import org.constantine.resto.model.Visitor;
 import org.constantine.resto.repository.VisitorRepository;
@@ -24,7 +24,7 @@ public class VisitorController {
             @Valid @RequestBody Visitor visitor) {
         if(visitorRepository.existsByUsername(visitor.getUsername())) {
             return new ResponseEntity<>(new CustomError("Unable to create. A User with username " +
-                    visitor.getUsername() + " already exist."), HttpStatus.CONFLICT);
+                    visitor.getUsername() + " already exist."), HttpStatus.OK);
         }
         Visitor client = visitorRepository.save(visitor);
         return new ResponseEntity<>(client, HttpStatus.OK);
@@ -35,7 +35,7 @@ public class VisitorController {
             @Valid @RequestBody SignInRequest signInRequest) {
         Visitor client = visitorRepository.findByUsernameAndPassword(signInRequest.getUsername(), signInRequest.getPassword());
         if(client == null) {
-            return new ResponseEntity<>(new CustomError("Invalid Credentials."), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(new CustomError("Invalid Credentials."), HttpStatus.OK);
         }
         return new ResponseEntity<>(client, HttpStatus.OK);
     }

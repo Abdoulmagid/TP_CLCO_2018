@@ -1,6 +1,6 @@
 package org.constantine.resto.controller;
 
-import org.constantine.resto.exception.ResourceNotFoundException;
+import org.constantine.resto.error.CustomError;
 import org.constantine.resto.model.*;
 import org.constantine.resto.repository.GradeRepository;
 import org.constantine.resto.repository.RestaurantRepository;
@@ -34,26 +34,12 @@ public class RestaurantController {
         return restaurantRepository.findAllRestaurantsDetail(PageRequest.of(0, 10, Sort.by("totalRatings").descending().and(Sort.by("ratings").descending())));
     }
 
-    @GetMapping("/restaurants/top5")
-    public Page<RestaurantDetail> getTop5Restaurants() {
-        return restaurantRepository.findTop5RestaurantsDetail(PageRequest.of(0, 5, Sort.by("totalRatings").descending().and(Sort.by("ratings").descending())));
-    }
-
-    @GetMapping("/restaurants/{id}")
-    public Restaurant getRestaurant(
-            @PathVariable Long id) {
-        Optional<Restaurant> restaurant = restaurantRepository.findById(id);
-        if (!restaurant.isPresent())
-            throw new ResourceNotFoundException("Restaurant not found with id " + id);
-        return restaurant.get();
-    }
-
     @GetMapping("/restaurants/{restoId}/details")
     public ResponseEntity<?> getRestaurantGradeDetail(
             @PathVariable Long restoId) {
         Optional<Restaurant> restaurant = restaurantRepository.findById(restoId);
         if (!restaurant.isPresent())
-            return new ResponseEntity<>("Restaurant not found with id " + restoId, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>( new CustomError("Restaurant not found with id " + restoId), HttpStatus.OK);
 
         List<Grade> grades = gradeRepository.findGradesByRestaurant(restaurant.get());
         if (grades.size() == 0)
@@ -79,7 +65,7 @@ public class RestaurantController {
         Optional<Restaurant> restaurant = restaurantRepository.findById(restoId);
         return restaurant.<ResponseEntity<?>>
                 map(restaurant1 -> new ResponseEntity<>(gradeRepository.findGradesByRestaurant(restaurant1), HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>("Restaurant not found with id " + restoId, HttpStatus.NOT_FOUND));
+                .orElseGet(() -> new ResponseEntity<>(new CustomError("Restaurant not found with id " + restoId), HttpStatus.OK));
     }
 
     @GetMapping("/restaurants/{restoId}/grades/{clientId}")
@@ -88,15 +74,15 @@ public class RestaurantController {
             @PathVariable Long clientId) {
         Optional<Restaurant> restaurant = restaurantRepository.findById(restoId);
         if (!restaurant.isPresent())
-            return new ResponseEntity<>("Restaurant not found with id " + restoId, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomError("Restaurant not found with id " + restoId), HttpStatus.OK);
 
         Optional<Visitor> client = visitorRepository.findById(clientId);
         if (!client.isPresent())
-            return new ResponseEntity<>("Client not found with id " + clientId, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomError("Client not found with id " + clientId), HttpStatus.OK);
 
         Optional<Grade> grade = gradeRepository.findGradeByRestaurantAndVisitor(restaurant.get(), client.get());
         if (!grade.isPresent())
-            return new ResponseEntity<>("Grade not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomError("Grade not found"), HttpStatus.OK);
         return new ResponseEntity<>(grade, HttpStatus.OK);
     }
 
@@ -107,11 +93,11 @@ public class RestaurantController {
             @Valid @RequestBody GraduateRequest graduateRequest) {
         Optional<Restaurant> restaurant = restaurantRepository.findById(restoId);
         if (!restaurant.isPresent())
-            return new ResponseEntity<>("Restaurant not found with id " + restoId, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomError("Restaurant not found with id " + restoId), HttpStatus.OK);
 
         Optional<Visitor> client = visitorRepository.findById(clientId);
         if (!client.isPresent())
-            return new ResponseEntity<>("Client not found with id " + clientId, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new CustomError("Client not found with id " + clientId), HttpStatus.OK);
 
         Optional<Grade> grade = gradeRepository.findGradeByRestaurantAndVisitor(restaurant.get(), client.get());
         if (grade.isPresent())

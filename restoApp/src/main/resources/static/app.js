@@ -29,32 +29,36 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                             $scope.sierrorMessage = "";
 
                             $scope.signup = function (visitor) {
-                                $http.post("/visitors", visitor)
+                                $http.post("/visitors/signup", visitor)
                                     .then(function (resp) {
-                                        //console.log(resp);
-                                        $scope.$storage.user = resp.data;
-                                        $scope.$storage.authenticated = true;
-                                        $state.go('restaurants.list', {}, { reload: true });
-                                        Notification.success('Welcome, '+resp.data.username+'. Account successful created !');
-                                    }, function (resp) {
-                                        //console.log(resp);
-                                        $scope.suerrorMessage = resp.data.errorMessage;
-                                        Notification.error('Sorry, It seem like there are some error. Try again !');
+                                        if (!resp.data.errors) {
+                                            //console.log(resp);
+                                            $scope.$storage.user = resp.data;
+                                            $scope.$storage.authenticated = true;
+                                            $state.go('restaurants.list', {}, { reload: true });
+                                            Notification.success('Welcome, '+resp.data.username+'. Account successful created !');
+                                        } else {
+                                            //console.log(resp);
+                                            $scope.suerrorMessage = resp.data.message;
+                                            Notification.error('Sorry, It seem like there are some error. Try again !');
+                                        }
                                     })
                             };
 
                             $scope.signin = function (signin) {
                                 $http.post("/visitors/signin", signin)
                                     .then(function (resp) {
-                                        //console.log(resp);
-                                        $scope.$storage.user = resp.data;
-                                        $scope.$storage.authenticated = true;
-                                        $state.go('restaurants.list', {}, { reload: true });
-                                        Notification.info('Happy seeing you, '+resp.data.username+' !');
-                                    }, function (resp) {
-                                        //console.log(resp);
-                                        $scope.sierrorMessage = resp.data.errorMessage;
-                                        Notification.error('Sorry, It seem like there are some error. Try again !');
+                                        if (!resp.data.errors) {
+                                            //console.log(resp);
+                                            $scope.$storage.user = resp.data;
+                                            $scope.$storage.authenticated = true;
+                                            $state.go('restaurants.list', {}, { reload: true });
+                                            Notification.info('Happy seeing you, '+resp.data.username+' !');
+                                        } else {
+                                            //console.log(resp);
+                                            $scope.sierrorMessage = resp.data.message;
+                                            Notification.error('Sorry, It seem like there are some error. Try again !');
+                                        }
                                     })
                             };
 
@@ -78,8 +82,8 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                         }]
                     },
                     controller: [
-                        '$scope', '$state', '$http', 'restaurantsData',
-                        function ($scope, $state, $http, restaurantsData ) {
+                        '$scope', '$state', '$http', 'restaurantsData', 'Notification',
+                        function ($scope, $state, $http, restaurantsData, Notification ) {
                             $scope.restaurants = restaurantsData.content;
                             $scope.topRestaurants = restaurantsData.content;
                             $scope.searchKey = "";
@@ -90,11 +94,14 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                             $scope.search = function () {
                                 $http.get("/restaurants/search?q="+$scope.searchKey+"&page="+$scope.currentPage+"&size="+$scope.pageSize)
                                     .then(function (resp) {
-                                        console.log(resp);
-                                        $scope.restaurants = resp.data.content;
-                                        $scope.pages = new Array(resp.data.totalPages);
-                                    }, function (resp) {
-                                        console.log(resp)
+                                        if (!resp.data.errors) {
+                                            //console.log(resp);
+                                            $scope.restaurants = resp.data.content;
+                                            $scope.pages = new Array(resp.data.totalPages);
+                                        } else {
+                                            //console.log(resp);
+                                            Notification.error('Sorry, It seem like there are some error. Try again !');
+                                        }
                                     })
                             };
 
@@ -126,48 +133,62 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                     views: {
                         '': {
                             templateUrl: "/views/restaurants.detail.html",
-                            controller: ['$scope', '$stateParams', '$http',
-                                function ($scope, $stateParams, $http) {
+                            controller: ['$scope', '$stateParams', '$http', '$state', 'Notification',
+                                function ($scope, $stateParams, $http, $state, Notification) {
+
+                                    $scope.myGrade = null;
+
                                     $http.get("/restaurants/"+$stateParams.restoId+"/details")
                                         .then(function (resp) {
-                                            //console.log(resp);
-                                            $scope.restaurant = resp.data;
-                                        }, function (resp) {
-                                            //console.log(resp);
-                                            Notification.error('Error: '+resp.data);
+                                            if (!resp.data.errors) {
+                                                //console.log(resp);
+                                                $scope.restaurant = resp.data;
+                                            } else {
+                                                //console.log(resp);
+                                                $state.go('error404', {}, { reload: true });
+                                                Notification.error('Error: '+resp.data.message);
+                                            }
                                         });
 
                                     if ($scope.$storage.user != null && $scope.$storage.authenticated) {
                                         $http.get("/restaurants/"+$stateParams.restoId+"/grades/"+$scope.$storage.user.id)
                                             .then(function (resp) {
-                                                //console.log(resp);
-                                                $scope.grade = resp.data;
-                                            }, function (resp) {
-                                                //console.log(resp);
-                                                $scope.grade = null;
-                                                Notification.error('Error: '+resp.data);
+                                                if (!resp.data.errors) {
+                                                    //console.log(resp);
+                                                    $scope.myGrade = resp.data;
+                                                } else {
+                                                    //console.log(resp);
+                                                    $scope.myGrade = null;
+                                                }
                                             });
                                     }
 
                                     $scope.graduate = function (grade) {
-                                        //grade.restoId = $scope.restaurant.id;
-                                        //grade.clientId = $scope.$storage.user.id;
+                                        grade.restoId = $scope.restaurant.id;
+                                        grade.clientId = $scope.$storage.user.id;
                                         //console.log(grade);
                                         $http.post("/restaurants/"+$stateParams.restoId+"/grades/"+$scope.$storage.user.id, grade)
                                             .then(function (resp) {
-                                                //console.log(resp);
-                                                $scope.grade = resp.data;
-                                                Notification.success('Thanks ! Your rating have been successfull register.');
-                                            }, function (resp) {
-                                                //console.log(resp);
-                                                $scope.grade = null;
-                                                Notification.error('Error: '+resp.data);
+                                                if (!resp.data.errors) {
+                                                    //console.log(resp);
+                                                    $scope.myGrade = resp.data;
+                                                    Notification.success('Thanks ! Your rating have been successfull register.');
+                                                } else {
+                                                    //console.log(resp);
+                                                    $scope.myGrade = null;
+                                                    Notification.error('Error: '+resp.data.message);
+                                                }
                                             })
                                     };
                                 }
                             ]
                         }
                     }
+                });
+
+                $stateProvider.state("error404", {
+                    url: "/error404",
+                    templateUrl: "/views/error.html"
                 });
 
                 $urlRouterProvider.otherwise("/");
@@ -189,6 +210,10 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
             positionX: 'right',
             positionY: 'top'
         });
+    })
+
+    .config(function($logProvider){
+        $logProvider.debugEnabled(false);
     })
 
     .service('RestaurantService', function($http) {

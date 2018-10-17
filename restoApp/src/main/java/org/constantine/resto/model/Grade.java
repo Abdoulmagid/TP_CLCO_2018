@@ -35,7 +35,6 @@ public class Grade {
     private int serviceQuality;
 
     @NotNull
-    @JsonIgnore
     private double quality;
 
     @Temporal(TemporalType.TIMESTAMP)
