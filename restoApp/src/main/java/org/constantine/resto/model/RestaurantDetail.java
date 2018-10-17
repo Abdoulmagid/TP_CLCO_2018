@@ -1,5 +1,8 @@
 package org.constantine.resto.model;
 
+import lombok.Data;
+
+@Data
 public class RestaurantDetail {
 
     private final Long id;
@@ -16,30 +19,6 @@ public class RestaurantDetail {
         this.address = address;
         this.ratings = ratings == null ? 0 : ratings;
         this.totalRatings = totalRatings == null ? 0 : totalRatings.intValue();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public Double getRatings() {
-        return ratings;
-    }
-
-    public int getTotalRatings() {
-        return totalRatings;
     }
 
 }

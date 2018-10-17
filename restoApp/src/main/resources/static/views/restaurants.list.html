@@ -1,0 +1,50 @@
+<div class="d-block p-4">
+    <!-- Search Widget -->
+    <div class="card my-4">
+        <h5 class="card-header">Search</h5>
+        <div class="card-body">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="searchKey" placeholder="Search for...">
+                <span class="input-group-append">
+                        <button class="btn btn-primary" type="button" ng-click="search()">Go!</button>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-responsive">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Address</th>
+            <th scope="col">Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="r in restaurants">
+            <th scope="row">{{r.id}}</th>
+            <td>
+                <a ui-sref="restaurants.detail({restoId: r.id})" class="alert-link">{{r.name}}</a>
+            </td>
+            <td>{{r.description}}</td>
+            <td>{{r.address.city}} - {{r.address.zip}}, {{r.address.street}}</td>
+            <td>
+                <span class="badge badge-primary">{{ r.ratings | number:0 }}</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<small class="d-block text-center mt-3">
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        <li class="page-item" ng-class="{disabled:currentPage==0}">
+            <a class="page-link" ng-click="gotoPreviousPage()">&larr; Previous</a>
+        </li>
+        <li ng-repeat="p in pages track by $index" class="page-item" ng-class="{active:currentPage==$index}"><a class="page-link" ng-click="gotoPage($index)">{{$index}}</a></li>
+        <li class="page-item" ng-class="{disabled:currentPage==pages.size()}">
+            <a class="page-link" ng-click="gotoNextPage()">Next &rarr;</a>
+        </li>
+    </ul>
+</small>

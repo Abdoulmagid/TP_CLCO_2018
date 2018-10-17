@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title ng-bind="$state.current.name + ' - Constantine Restaurants\'Grades'">Constantine Restaurants'Grades</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="angular/angular-ui-notification.min.css">
+
+</head>
+<body class="container bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" ui-sref="home">Constantine Restaurants</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" ng-class="{active: $state.includes('restaurants')}">
+                    <a class="nav-link" ui-sref="restaurants.list">Restaurants</a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+
+    <!-- Page Content -->
+    <div class="container" ui-view>
+
+    </div>
+    <!-- /.container -->
+
+    <hr>
+    <pre>
+      <!-- Here's some values to keep an eye on in the sample in order to understand $state and $stateParams -->
+      $state = {{$state.current.name}}
+      $stateParams = {{$stateParams}}
+      $state full url = {{ $state.$current.url }}
+        <!-- $state.$current is not a public api, we are using it to
+             display the full url for learning purposes-->
+    </pre>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; TP CLCO 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js" ></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="angular/angular.min.js" ></script>
+    <script type="text/javascript" src="angular/angular-ui-router.min.js" ></script>
+    <script type="text/javascript" src="angular/angular-ui-notification.min.js" ></script>
+    <script type="text/javascript" src="angular/ngStorage.min.js" ></script>
+    <script type="text/javascript" src="app.js" ></script>
+</body>
+</html>

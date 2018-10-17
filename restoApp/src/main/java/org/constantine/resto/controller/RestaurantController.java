@@ -133,7 +133,7 @@ public class RestaurantController {
             @RequestParam(defaultValue = "", name = "q") String query,
             @RequestParam(defaultValue = "0", name = "page") int page,
             @RequestParam(defaultValue = "10", name = "size") int size) {
-        return restaurantRepository.searchRestaurants("%"+query+"%", PageRequest.of(page, size));
+        return restaurantRepository.searchRestaurants("%"+query+"%", PageRequest.of(page, size, Sort.by("totalRatings").descending().and(Sort.by("ratings").descending())));
     }
 
 }

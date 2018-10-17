@@ -51,12 +51,12 @@ public class Grade {
         this.foodQuality = foodQuality;
         this.roomQuality = roomQuality;
         this.serviceQuality = serviceQuality;
-        this.quality = (foodQuality + roomQuality + serviceQuality) / 3;
+        this.quality = Math.ceil((foodQuality + roomQuality + serviceQuality) / 3);
         this.id = new GradeId(restaurant.getId(), visitor.getId());
     }
 
     public double getQuality() {
-        return (foodQuality + roomQuality + serviceQuality) / 3;
+        return Math.ceil((foodQuality + roomQuality + serviceQuality) / 3);
     }
 
 }
