@@ -160,6 +160,9 @@ insert into grades (restaurant_id, visitor_id, food_quality, room_quality, servi
 
 #### Création des controller Rest et des repository
 
+Les controller nous permettent d'exposer notre application sous forme d'api
+Et les repository pour la communication avec la base de données.
+
 RestaurantController
 
 ```java
@@ -337,3 +340,11 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
 ```
 
+#### Le frontend de l'application
+
+Le frontend utilise les librairies:
+* Bootstrap 4 (css et js) : Pour les composants graphique (navbar, button, formulaires, ...)
+* AngularJs : Framework javascript, pour rendre l'application dynamique, envoyer des requetes HTTP à notre api et recevoir les réponses.
+* AngularJs ui-router : Pour le routage (navigation entre les pages)
+* AngularJs ui-notification : Pour afficher les notifications
+* AngularJs ngStorage : Pour stocker des données sur le navigateur
