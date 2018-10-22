@@ -65,13 +65,13 @@ Spring Initializr http://start.spring.io/ est un très bon outils pour préparer
 Comme montre sur la figure ci-dessus, les étapes sont:
 
 * A partir de Spring Initializr, choisir :
-.* org.constantine comme Group
-.* resto comme Artifact
-.* Selectionner les dépendances suivantes: 
-   ..*Web
-   ..*JPA
-   ..*H2
-   ..*DevTools
+   - org.constantine comme Group
+   - resto comme Artifact
+   - Selectionner les dépendances suivantes: 
+      - Web
+      - JPA
+      - H2
+      - DevTools
 * Cliquer sur Generate Project.
 * Importer le projet dans un IDE de choix (disposant de Maven, pour pouvoir telécharger les dépendances et construire le projet)
 
