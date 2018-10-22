@@ -37,4 +37,27 @@ Noter un restaurant
 
 ### Architecture de l'application
 
+Nous avons développer l'application en utilisant le framework Spring Boot et avons opte pour une base de données in memory H2. 
+Spring Boot est un framework qui permet de démarrer rapidement le développement d'applications ou services en fournissant les dépendances nécessaires et en auto-configurant celles-ci.
+
+Pour activer l'auto-configuration, on utilise l'annotation @EnableAutoConfiguration . Si vous écrivez vos propres configurations, celles-ci priment sur celles de Spring Boot.
+
+Les starters permettent d'importer un ensemble de dépendances selon la nature de l'application à développer afin de démarrer rapidement.
+
+Une base de données in memory est crée lorsque l'application démarre et est detruite lorqu'elle est arrêtée.
+
+H2 est l'une des base de données in memory les plus populaires. Spring Boot a une très bonne integration pour H2.
+
+Ci-dessous une liste exhaustive des technologies utilisées:
+
+* Spring Boot 2.0.6 avec les dependances: Web, JPA, H2, Lombok, Devtools
+* AngularJS et Bootstrap 4
+* Maven 3.1
+* JDK 1.8
+* Intellij Idea
+
+#### Création du  projet Spring Boot avec H2
+
+Spring Initializr http://start.spring.io/ est un très bon outils pour préparer les projets Spring Boot.
+
 
