@@ -35,6 +35,16 @@ Noter un restaurant
 
 ### Repartition des tâches
 
+Nous avons décider pour cette application de ne pas séparer le serveur du client. c'est à dire le serveur se chargera lui même de rendre les vues au client. Ce dernier sera donc un simple navigateur. Tout le code serveur et client sont au niveau de l'application serveur elle-même.
+
+Tâches | Mahamet Habibou | Souley Ladan
+------------ | -------------
+Choix de l'architecture et des technologies | :heavy_check_mark: | :heavy_check_mark:
+Project Setup | :heavy_check_mark: | :heavy_check_mark:
+Serveur | :heavy_check_mark: | :heavy_check_mark:
+Client | :heavy_check_mark: | :heavy_check_mark:
+Rapport | :heavy_check_mark: | :heavy_check_mark:
+
 ### Architecture de l'application
 
 Nous avons développé l'application en utilisant le framework Spring Boot et avons opté pour une base de données in memory H2. 
@@ -347,6 +357,35 @@ Le frontend utilise les librairies:
 * AngularJs ui-router : Pour le routage (navigation entre les pages)
 * AngularJs ui-notification : Pour afficher les notifications
 * AngularJs ngStorage : Pour stocker des données sur le navigateur
+
+#### Création de l'exécutable .jar
+
+La commande
+
+```
+mvn clean & mvn install
+```
+
+crée l'exécutable .jar de l'application contenant toute les dépendances nécessaire à l'exécution de l'application.
+
+Lancer l'exécutable avec la commande
+
+```
+java -jar <exécutable>
+```
+
+Pour changer le numéro de port du server
+
+```
+java -jar <exécutable> --server.port=8083
+```
+
+
+Ensuite, dans un navigateur entrer
+
+```
+http://localhost:<port>
+```
 
 ## Partie 2: Déployement de l'application sur le cloud (Openshift)
 
