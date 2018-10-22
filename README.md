@@ -37,7 +37,7 @@ Noter un restaurant
 
 ### Architecture de l'application
 
-Nous avons développer l'application en utilisant le framework Spring Boot et avons opte pour une base de données in memory H2. 
+Nous avons développé l'application en utilisant le framework Spring Boot et avons opté pour une base de données in memory H2. 
 Spring Boot est un framework qui permet de démarrer rapidement le développement d'applications ou services en fournissant les dépendances nécessaires et en auto-configurant celles-ci.
 
 Pour activer l'auto-configuration, on utilise l'annotation @EnableAutoConfiguration . Si vous écrivez vos propres configurations, celles-ci priment sur celles de Spring Boot.
@@ -77,7 +77,12 @@ Comme montre sur la figure ci-dessus, les étapes sont:
 
 #### Création des entités
 
-Entité Restaurant
+**Restaurant**(id, name, description, address)
+**Visitor**(id, fullname, username, password)
+**Grade**(restoId, visitorId, foodQuality, roomQuality, serviceQuality, quality, graduateAt)
+**Address**(street, zip, city)
+
+Exemple: Entité Restaurant
 
 ```java
 package org.constantine.resto.model;
@@ -116,6 +121,39 @@ public class Restaurant {
 }
 ```
 
+#### Spring Boot et H2
+
+H2 fournit une interface web appelée H2 Console pour visualiser les données.
+
+Fichier /src/main/resources/application.properties
+```java
+# Enabling H2 Console
+spring.h2.console.enabled=true
+
+# Configuring Database
+spring.datasource.url=jdbc:h2:mem:restoGrades;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driverClassName=org.h2.Driver
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+```
+Spring Boot se charge automatiquement de créer les tables correspondant à nos entités dans la base de données H2.
+
+![H2 Console](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/h2-console.png)
+
+Aussi, la base de données peut être peuplée en ajoutant un fichier `data.sql`
+
+```sql
+insert into restaurants (id, name, description, street, zip, city) values (null, 'DAR ES-SOLTANE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '23, rue Hamlaoui', '25000', 'Constantine');
+insert into restaurants (id, name, description, street, zip, city) values (null, 'TIDDIS', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Avenue Ali-Zaamouche', '25000', 'Constantine');
+
+insert into visitors (id, fullname, username, password) values (null, 'Mahamet Habibou', 'Mahamet2018', 'password');
+insert into visitors (id, fullname, username, password) values (null, 'Souley Ladan', 'Souley2018', 'password');
+
+insert into grades (restaurant_id, visitor_id, food_quality, room_quality, service_quality, quality, graduate_at) values (1, 5, 12, 13, 15, 14, '2018-10-17 01:50:55.618');
+insert into grades (restaurant_id, visitor_id, food_quality, room_quality, service_quality, quality, graduate_at) values (1, 10, 15, 16, 14, 15, '2018-10-17 01:50:55.618');
+
+```
 
 
 
