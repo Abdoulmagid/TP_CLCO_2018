@@ -337,14 +337,19 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     Page<RestaurantDetail> findAllRestaurantsDetail(Pageable pageable);
 
 }
-
 ```
 
 #### Le frontend de l'application
 
 Le frontend utilise les librairies:
-* Bootstrap 4 (css et js) : Pour les composants graphique (navbar, button, formulaires, ...)
+* Bootstrap 4 (css et js) : Pour les composants graphiques (navbar, button, formulaires, ...)
 * AngularJs : Framework javascript, pour rendre l'application dynamique, envoyer des requetes HTTP à notre api et recevoir les réponses.
 * AngularJs ui-router : Pour le routage (navigation entre les pages)
 * AngularJs ui-notification : Pour afficher les notifications
 * AngularJs ngStorage : Pour stocker des données sur le navigateur
+
+## Partie 2: Déployement de l'application sur le cloud (Openshift)
+
+### La plateforme Openshift
+
+...
