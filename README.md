@@ -78,8 +78,11 @@ Comme montre sur la figure ci-dessus, les étapes sont:
 #### Création des entités
 
 **Restaurant**(id, name, description, address)
+
 **Visitor**(id, fullname, username, password)
+
 **Grade**(restoId, visitorId, foodQuality, roomQuality, serviceQuality, quality, graduateAt)
+
 **Address**(street, zip, city)
 
 Exemple: Entité Restaurant
