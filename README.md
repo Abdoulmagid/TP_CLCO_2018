@@ -404,7 +404,7 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 * **Openshift Pro** :
 
-#### Déployer une application sur Openshift
+#### Déployer l' application sur Openshift
 
 1. Créér un compte Openshift
 
