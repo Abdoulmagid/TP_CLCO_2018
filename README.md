@@ -70,7 +70,7 @@ Ci-dessous une liste exhaustive des technologies utilisées:
 
 Spring Initializr http://start.spring.io/ est un très bon outils pour préparer les projets Spring Boot.
 
-![Project Bootstraping](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/project-setup.png)
+![Project Bootstraping](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/project-setup.png)
 
 Comme montre sur la figure ci-dessus, les étapes sont:
 
