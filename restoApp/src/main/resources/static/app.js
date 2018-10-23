@@ -82,20 +82,31 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                         }]
                     },
                     controller: [
-                        '$scope', '$state', '$http', 'restaurantsData', 'Notification',
-                        function ($scope, $state, $http, restaurantsData, Notification ) {
+                        '$scope', '$state', '$http', 'restaurantsData',
+                        function ($scope, $state, $http, restaurantsData ) {
                             $scope.restaurants = restaurantsData.content;
                             $scope.topRestaurants = restaurantsData.content;
-                            $scope.searchKey = "";
                             $scope.currentPage = 0;
                             $scope.pageSize = 10;
                             $scope.pages = new Array(restaurantsData.totalPages);
+                        }
+                    ]
+                });
+
+                $stateProvider.state("restaurants.list", {
+                    url: "",
+                    templateUrl: "/views/restaurants.list.html",
+                    controller: [
+                        '$scope', '$state', '$http', 'Notification',
+                        function ($scope, $state, $http, Notification ) {
+                            $scope.searchKey = "";
 
                             $scope.search = function () {
+                                console.log("Search Key = " + $scope.searchKey)
                                 $http.get("/restaurants/search?q="+$scope.searchKey+"&page="+$scope.currentPage+"&size="+$scope.pageSize)
                                     .then(function (resp) {
                                         if (!resp.data.errors) {
-                                            console.log(resp);
+                                            console.log(resp.data);
                                             $scope.restaurants = resp.data.content;
                                             $scope.pages = new Array(resp.data.totalPages);
                                         } else {
@@ -119,13 +130,9 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                                 $scope.currentPage++;
                                 $scope.search();
                             };
+
                         }
                     ]
-                });
-
-                $stateProvider.state("restaurants.list", {
-                    url: "",
-                    templateUrl: "/views/restaurants.list.html"
                 });
 
                 $stateProvider.state("restaurants.detail", {

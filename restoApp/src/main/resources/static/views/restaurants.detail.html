@@ -34,9 +34,7 @@
         <div class="card-body">
             <a ui-sref="home" ng-show="!$storage.autenticated && $storage.user == null" class="btn btn-block btn-info">Create account Or Sign In</a>
             <form name="gradeForm" ng-show="$storage.user" novalidate>
-                <input type="text" hidden ng-model="grade.restoId" class="form-control" name="restoId" ng-value="restaurant.id" required="required">
-                <input type="text" hidden ng-model="grade.clientId" class="form-control" name="clientId" ng-value="$storage.user.id" required="required">
-                <div class="form-row">
+               <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="foodQuality">Food</label>
                         <div class="input-group">

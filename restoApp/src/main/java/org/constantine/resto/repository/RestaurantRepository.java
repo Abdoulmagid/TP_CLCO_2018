@@ -26,7 +26,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
             "LEFT JOIN Grade g ON r.id = g.id.restaurantId " +
             "GROUP BY r.id " +
             "HAVING r.name LIKE :q ")
-    Page<RestaurantDetail> searchRestaurants(@Param("q") String q, Pageable pageable);
+    Page<RestaurantDetail> searchRestaurants(@Param("q") String query, Pageable pageable);
+
     @Query("SELECT " +
             "new org.constantine.resto.model.RestaurantDetail(" +
             "r.id as id, " +
