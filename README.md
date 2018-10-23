@@ -17,21 +17,25 @@ Pour établir ce classement, un serveur doit calculer à chaque fois un score qu
 
 ### Présentation de l'application
 
-Page d'accueil
+**Page d'accueil
 
 ![Welcome Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/welcome-screen.png)
 
-Liste des restaurants (ordonnées selon les notes de clients)
+**Liste des restaurants (ordonnées selon les notes de clients)
 
 ![Restaurants List Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurants-list.png)
 
-Informations sur un retaurant
+**Informations sur un retaurant
 
 ![Restaurant Detail Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurants-detail.png)
 
-Noter un restaurant
+**Noter un restaurant
 
 ![Restaurant Rating Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurant-rating.png)
+
+**Page non Trouvée
+
+![Page Not Found](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/error-404.png)
 
 ### Repartition des tâches
 
@@ -325,26 +329,29 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query("SELECT " +
             "new org.constantine.resto.model.RestaurantDetail(" +
-            "g.restaurant.id as id, " +
-            "g.restaurant.name as name, " +
-            "g.restaurant.description as description, " +
-            "g.restaurant.address as address, " +
+            "r.id as id, " +
+            "r.name as name, " +
+            "r.description as description, " +
+            "r.address as address, " +
             "AVG(g.quality) as ratings, " +
             "COUNT(g.quality) as totalRatings) " +
-            "FROM Grade g " +
-            "GROUP BY g.restaurant.id " +
-            "HAVING g.restaurant.name LIKE :q")
+            "FROM Restaurant r " +
+            "LEFT JOIN Grade g ON r.id = g.id.restaurantId " +
+            "GROUP BY r.id " +
+            "HAVING r.name LIKE :q ")
     Page<RestaurantDetail> searchRestaurants(@Param("q") String query, Pageable pageable);
+
     @Query("SELECT " +
             "new org.constantine.resto.model.RestaurantDetail(" +
-            "g.restaurant.id as id, " +
-            "g.restaurant.name as name, " +
-            "g.restaurant.description as description, " +
-            "g.restaurant.address as address, " +
+            "r.id as id, " +
+            "r.name as name, " +
+            "r.description as description, " +
+            "r.address as address, " +
             "AVG(g.quality) as ratings, " +
             "COUNT(g.quality) as totalRatings) " +
-            "FROM Grade g " +
-            "GROUP BY g.restaurant.id")
+            "FROM Restaurant r " +
+            "LEFT JOIN Grade g ON r.id = g.id.restaurantId " +
+            "GROUP BY r.id ")
     Page<RestaurantDetail> findAllRestaurantsDetail(Pageable pageable);
 
 }
