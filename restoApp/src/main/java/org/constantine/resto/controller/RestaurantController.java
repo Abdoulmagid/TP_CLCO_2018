@@ -116,10 +116,10 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/search")
     public Page<RestaurantDetail> searchRestaurant(
-            @RequestParam(defaultValue = "", name = "q") String query,
+            @RequestParam(defaultValue = "", name = "q") String q,
             @RequestParam(defaultValue = "0", name = "page") int page,
             @RequestParam(defaultValue = "10", name = "size") int size) {
-        return restaurantRepository.searchRestaurants("%"+query+"%", PageRequest.of(page, size, Sort.by("totalRatings").descending().and(Sort.by("ratings").descending())));
+        return restaurantRepository.searchRestaurants("%"+q+"%", PageRequest.of(page, size, Sort.by("totalRatings").descending().and(Sort.by("ratings").descending())));
     }
 
 }

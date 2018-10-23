@@ -95,7 +95,7 @@ angular.module("myApp", ["ui.router", "ngStorage", "ui-notification"])
                                 $http.get("/restaurants/search?q="+$scope.searchKey+"&page="+$scope.currentPage+"&size="+$scope.pageSize)
                                     .then(function (resp) {
                                         if (!resp.data.errors) {
-                                            //console.log(resp);
+                                            console.log(resp);
                                             $scope.restaurants = resp.data.content;
                                             $scope.pages = new Array(resp.data.totalPages);
                                         } else {

@@ -16,37 +16,28 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query("SELECT " +
             "new org.constantine.resto.model.RestaurantDetail(" +
-            "g.restaurant.id as id, " +
-            "g.restaurant.name as name, " +
-            "g.restaurant.description as description, " +
-            "g.restaurant.address as address, " +
+            "r.id as id, " +
+            "r.name as name, " +
+            "r.description as description, " +
+            "r.address as address, " +
             "AVG(g.quality) as ratings, " +
             "COUNT(g.quality) as totalRatings) " +
-            "FROM Grade g " +
-            "GROUP BY g.restaurant.id " +
-            "HAVING g.restaurant.name LIKE :q")
-    Page<RestaurantDetail> searchRestaurants(@Param("q") String query, Pageable pageable);
+            "FROM Restaurant r " +
+            "LEFT JOIN Grade g ON r.id = g.id.restaurantId " +
+            "GROUP BY r.id " +
+            "HAVING r.name LIKE :q ")
+    Page<RestaurantDetail> searchRestaurants(@Param("q") String q, Pageable pageable);
     @Query("SELECT " +
             "new org.constantine.resto.model.RestaurantDetail(" +
-            "g.restaurant.id as id, " +
-            "g.restaurant.name as name, " +
-            "g.restaurant.description as description, " +
-            "g.restaurant.address as address, " +
+            "r.id as id, " +
+            "r.name as name, " +
+            "r.description as description, " +
+            "r.address as address, " +
             "AVG(g.quality) as ratings, " +
             "COUNT(g.quality) as totalRatings) " +
-            "FROM Grade g " +
-            "GROUP BY g.restaurant.id")
+            "FROM Restaurant r " +
+            "LEFT JOIN Grade g ON r.id = g.id.restaurantId " +
+            "GROUP BY r.id ")
     Page<RestaurantDetail> findAllRestaurantsDetail(Pageable pageable);
-    @Query("SELECT " +
-            "new org.constantine.resto.model.RestaurantDetail(" +
-            "g.restaurant.id as id, " +
-            "g.restaurant.name as name, " +
-            "g.restaurant.description as description, " +
-            "g.restaurant.address as address, " +
-            "AVG(g.quality) as ratings, " +
-            "COUNT(g.quality) as totalRatings) " +
-            "FROM Grade g " +
-            "GROUP BY g.restaurant.id")
-    Page<RestaurantDetail> findTop5RestaurantsDetail(Pageable pageable);
 
 }
