@@ -42,7 +42,7 @@ Nous avons décider pour cette application de ne pas séparer le serveur du clie
 | Choix de l'architecture et des technologies | :heavy_check_mark: | :heavy_check_mark: |
 | Project Setup | :heavy_check_mark: | :heavy_check_mark: |
 | Serveur | :heavy_check_mark: | :heavy_check_mark: |
-| Client | :heavy_check_mark: | :heavy_check_mark: |
+| Client | :heavy_check_mark: |  |
 | Rapport | :heavy_check_mark: | :heavy_check_mark: |
 
 ### Architecture de l'application
@@ -95,7 +95,7 @@ Comme montre sur la figure ci-dessus, les étapes sont:
 
 **Address**(street, zip, city)
 
-Exemple: Entité Restaurant
+**Exemple:** Entité Restaurant
 
 ```java
 package org.constantine.resto.model;
@@ -139,6 +139,7 @@ public class Restaurant {
 H2 fournit une interface web appelée H2 Console pour visualiser les données.
 
 Fichier /src/main/resources/application.properties
+
 ```java
 # Enabling H2 Console
 spring.h2.console.enabled=true
@@ -173,7 +174,7 @@ insert into grades (restaurant_id, visitor_id, food_quality, room_quality, servi
 Les controller nous permettent d'exposer notre application sous forme d'api
 Et les repository pour la communication avec la base de données.
 
-RestaurantController
+**RestaurantController**
 
 ```java
 package org.constantine.resto.controller;
@@ -303,7 +304,7 @@ public class RestaurantController {
 }
 ```
 
-RestaurantRepository
+**RestaurantRepository**
 
 ```java
 package org.constantine.resto.repository;
@@ -398,11 +399,12 @@ Openshift est un service de plateforme as a service (PAAS) developpé par RED HA
 Openshift permet de construire, de développer et de déployer, rapidement et facilement des applications quelque soit leur
 architecture. Openshift propose deux alternatives pour déployer son application, chacune avec ses spécifités : 
 
+![Openshift Price](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-price.png)
+
 * **Openshift Starter** :  
 Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
 pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
 lorsque l'application est démeure inactive après 30 minutes, les ressources sont revoquées. 
-
 
 * **Openshift Pro** :
 
@@ -412,5 +414,22 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 2. Selectionner un plan
 
-3. 
+![Openshift Plan](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-plan.png)
+
+3. Confirmer le plan choisi
+
+![Openshift Confirmation](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-confirm.png)
+
+4. Souscription en attente d'allocation de ressources
+
+![Openshift Subscription](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-subscription.png)
+
+4. Allocation de ressources OK
+
+![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.png)
+
+5. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
+
+   - Configuration du projet pour le déployement sur Openshift
+
 
