@@ -387,19 +387,18 @@ Ensuite, dans un navigateur entrer
 http://localhost:<port>
 ```
 
-## Partie 2: Déployement de l'application sur le cloud (Openshift)
+## Partie 2: Déploiement de l'application sur le cloud (Openshift)
 
 ![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/Openshift.png)
 
 Openshift est un service de plateforme as a service (PAAS) developpé par RED HAT, une entreprise multinationale américaine 
 édidant des distrtibutions GNU/Linux. 
-Openshift permet de construire, de développer et de déployer, rapidement et facilement des applications quelque soit leur
-architecture. Openshift propose deux alternatives pour déployer son application, chacune avec ses spécifités : 
+Openshift permet de construire, développer et déployer, rapidement et facilement des applications quelque soit leur
+architecture. Openshift propose deux alternatives pour le déploiement d' une application, chacune avec ses spécifités : 
 
 * **Openshift Starter** :  
-Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
-pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
-lorsque l'application est démeure inactive après 30 minutes, les ressources sont revoquées. 
+Cette solution est gratuite. Elle est adéquate pour la réalisation des tests. Cependant, elle présente quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
+lorsque l'application démeure inactive après 30 minutes, les ressources sont revoquées. 
 
 
 * **Openshift Pro** :
