@@ -438,5 +438,7 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 5. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
 
    - Configuration du projet pour le déployement sur Openshift
+   
+   ![Openshift Config Intellij](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-config.PNG)
 
 
