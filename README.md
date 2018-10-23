@@ -453,6 +453,8 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 8. Construire l'application et la déployer
 
-9. Accéder à l'application
+![Openshift App Deployed](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-app-deploy.PNG)
+
+9. Accéder à l'application en ligne
 
 http://resto-app-resto-app.1d35.starter-us-east-1.openshiftapps.com/#!/
