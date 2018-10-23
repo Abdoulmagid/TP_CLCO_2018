@@ -408,9 +408,9 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 #### Déployer une application sur Openshift
 
-1 Créér un compte Openshift
+1. Créér un compte Openshift
 
-2 Selectionner un plan
+2. Selectionner un plan
 
-3 
+3. 
 
