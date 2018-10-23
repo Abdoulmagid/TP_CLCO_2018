@@ -389,8 +389,6 @@ http://localhost:<port>
 
 ## Partie 2: Déployement de l'application sur le cloud (Openshift)
 
-### La plateforme Openshift
-
 ![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/Openshift.png)
 
 Openshift est un service de plateforme as a service (PAAS) developpé par RED HAT, une entreprise multinationale américaine 
