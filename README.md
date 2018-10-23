@@ -391,15 +391,17 @@ http://localhost:<port>
 
 ### La plateforme Openshift
 
-![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/telechargement.png)
+![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/Openshift.png)
 
 Openshift est un service de plateforme as a service (PAAS) developpé par RED HAT, une entreprise multinationale américaine 
 édidant des distrtibutions GNU/Linux. 
 Openshift permet de construire, de développer et de déployer, rapidement et facilement des applications quelque soit leur
 architecture. Openshift propose deux alternatives pour déployer son application, chacune avec ses spécifités : 
 
-* Openshift Starter :
-Cette solution est gratuite est permet de créer deux pods de 512 MB chacun
+* Openshift Starter :  
+Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
+pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
+
 
 #### Déployer une application sur Openshift
 
