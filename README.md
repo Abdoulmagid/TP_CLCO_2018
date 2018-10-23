@@ -450,3 +450,9 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 7. Valider les information
 
 ![Openshift Project Confirm](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-result.PNG)
+
+8. Construire l'application et la déployer
+
+9. Accéder à l'application
+
+http://resto-app-resto-app.1d35.starter-us-east-1.openshiftapps.com/#!/
