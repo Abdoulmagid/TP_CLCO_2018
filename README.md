@@ -435,7 +435,27 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 ![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.PNG)
 
-5. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
+5. Création d'un espace de travail
+
+![Openshift Application Space](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-space.PNG)
+
+6. Création d'une application dans l'espace de travail
+
+![Openshift Create App](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-app.PNG)
+
+7. Autoriser Openshift à accéder au répertoire git de l'application
+
+![Openshift Authorize Git Provider](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-authorize-git.PNG)
+
+7. Choisir le pipeline
+
+![Openshift Select Pipeline](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-select-pipeline.PNG)
+
+8. Confirmer l'importation de l'application et les informations
+
+![Openshift Confirm import](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-app-confirm.PNG)
+
+10. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
 
    - Configuration du projet pour le déployement sur Openshift
    
