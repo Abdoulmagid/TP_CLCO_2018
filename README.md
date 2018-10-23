@@ -414,19 +414,19 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 2. Selectionner un plan
 
-![Openshift Plan](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-plan.png)
+![Openshift Plan](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-plan.PNG)
 
 3. Confirmer le plan choisi
 
-![Openshift Confirmation](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-confirm.png)
+![Openshift Confirmation](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-confirm.PNG)
 
 4. Souscription en attente d'allocation de ressources
 
-![Openshift Subscription](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-subscription.png)
+![Openshift Subscription](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-subscription.PNG)
 
 4. Allocation de ressources OK
 
-![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.png)
+![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.PNG)
 
 5. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
 
