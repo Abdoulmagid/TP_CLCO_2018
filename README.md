@@ -398,10 +398,13 @@ Openshift est un service de plateforme as a service (PAAS) developpé par RED HA
 Openshift permet de construire, de développer et de déployer, rapidement et facilement des applications quelque soit leur
 architecture. Openshift propose deux alternatives pour déployer son application, chacune avec ses spécifités : 
 
-* Openshift Starter :  
+* **Openshift Starter** :  
 Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
 pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
+lorsque l'application est démeure inactive après 30 minutes, les ressources sont revoquées. 
 
+
+* **Openshift Pro** :
 
 #### Déployer une application sur Openshift
 
