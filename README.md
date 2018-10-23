@@ -17,23 +17,23 @@ Pour établir ce classement, un serveur doit calculer à chaque fois un score qu
 
 ### Présentation de l'application
 
-**Page d'accueil
+**Page d'accueil**
 
 ![Welcome Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/welcome-screen.png)
 
-**Liste des restaurants (ordonnées selon les notes de clients)
+**Liste des restaurants (ordonnées selon les notes de clients)**
 
 ![Restaurants List Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurants-list.png)
 
-**Informations sur un retaurant
+**Informations sur un retaurant**
 
 ![Restaurant Detail Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurants-detail.png)
 
-**Noter un restaurant
+**Noter un restaurant**
 
 ![Restaurant Rating Screen](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/restaurant-rating.png)
 
-**Page non Trouvée
+**Page non Trouvée**
 
 ![Page Not Found](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/restoAppRunnable/screenshots/error-404.png)
 
