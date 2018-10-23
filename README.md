@@ -435,30 +435,18 @@ lorsque l'application est démeure inactive après 30 minutes, les ressources so
 
 ![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.PNG)
 
-5. Création d'un espace de travail
+5. Création d'un projet
 
-![Openshift Application Space](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-space.PNG)
+![Openshift Application Space](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-project.PNG)
 
-6. Création d'une application dans l'espace de travail
+6. Choisir le type de projet
 
-![Openshift Create App](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-app.PNG)
+![Openshift Project Type](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-type.PNG)
 
-7. Autoriser Openshift à accéder au répertoire git de l'application
+7. Configurer le projet
 
-![Openshift Authorize Git Provider](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-authorize-git.PNG)
+![Openshift Project Config](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-config.PNG)
 
-7. Choisir le pipeline
+7. Valider les information
 
-![Openshift Select Pipeline](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-select-pipeline.PNG)
-
-8. Confirmer l'importation de l'application et les informations
-
-![Openshift Confirm import](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-app-confirm.PNG)
-
-10. Avec l'IDE Intellij, la solution de déployement cloud Openshift est déja integrée
-
-   - Configuration du projet pour le déployement sur Openshift
-   
-   ![Openshift Config Intellij](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-config.PNG)
-
-
+![Openshift Project Confirm](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-result.PNG)
