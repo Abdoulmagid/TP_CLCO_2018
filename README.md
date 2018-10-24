@@ -408,14 +408,17 @@ architecture. Openshift propose deux alternatives pour déployer son application
 
 ![Openshift Price](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-price.png)
 
-* **Openshift Starter** :  
+* **Openshift Online Starter** :  
 Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
 pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
 lorsque l'application est inactive après 30 minutes, les ressources lui sont revoquées. 
 
 Pour pallier à ce problème, nous avons ajouté au serveur un scheduler qui,chaque 10 minutes affiche un message log, afin de garder le serveur actif.
 
-* **Openshift Pro** :
+* **Openshift Online Pro** :
+Cette solution est payante. L'abonnement mensuel minimum est de 50 $ le mois, donnant ainsi la possibilité de déployer jusqu'à 10
+projets sur un cloud public. Elle offre également la possibilité de personnaliser son domaine.
+
 
 #### Déployer une application sur Openshift
 
