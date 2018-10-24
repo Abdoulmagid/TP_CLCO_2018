@@ -399,9 +399,7 @@ http://localhost:<port>
 
 ### La plateforme Openshift
 
-<p align="center">
 ![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-logo.png)
-</p>
 
 Openshift est un service de plateforme as a service (PAAS) developpé par RED HAT, une entreprise multinationale américaine 
 édidant des distrtibutions GNU/Linux. 
@@ -441,9 +439,7 @@ Pour pallier à ce problème, nous avons ajouté au serveur un scheduler qui,cha
 
 ##### 6. Création d'un projet
 
-<p align="center">
 ![Openshift Application Space](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-project.PNG)
-</p>
 
 ##### 7. Choisir le type de projet
 
