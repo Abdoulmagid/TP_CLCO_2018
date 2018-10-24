@@ -419,6 +419,8 @@ Pour pallier à ce problème, nous avons ajouté au serveur un scheduler qui,cha
 Cette solution est payante. L'abonnement mensuel minimum est de 50 $ le mois, donnant ainsi la possibilité de déployer jusqu'à 10
 projets sur un cloud public. Elle offre également la possibilité de personnaliser son domaine.
 
+Hormis ces deux solutions, d'autres alternatives existent. Celles-ci sont dédiées au cloud privé et aux  solutions d'entreprises.
+
 
 #### Déployer une application sur Openshift
 
