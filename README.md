@@ -399,7 +399,9 @@ http://localhost:<port>
 
 ### La plateforme Openshift
 
+<p align="center">
 ![Openshift Logo](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-logo.png)
+</p>
 
 Openshift est un service de plateforme as a service (PAAS) developpé par RED HAT, une entreprise multinationale américaine 
 édidant des distrtibutions GNU/Linux. 
@@ -413,48 +415,54 @@ Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de
 pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
 lorsque l'application est démeure inactive après 30 minutes, les ressources sont revoquées. 
 
+Pour pallier à ce problème, nous avons ajouté au serveur un scheduler qui,chaque 10 minutes affiche un message log, afin de garder le serveur actif.
+
 * **Openshift Pro** :
 
 #### Déployer une application sur Openshift
 
-1. Créer un compte Openshift
+##### 1. Créer un compte Openshift
 
-2. Selectionner un plan
+##### 2. Selectionner un plan
 
 ![Openshift Plan](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-plan.PNG)
 
-3. Confirmer le plan choisi
+##### 3. Confirmer le plan choisi
 
 ![Openshift Confirmation](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-confirm.PNG)
 
-4. Souscription en attente d'allocation de ressources
+##### 4. Souscription en attente d'allocation de ressources
 
 ![Openshift Subscription](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-subscription.PNG)
 
-4. Allocation de ressources OK
+##### 5. Allocation de ressources OK
 
 ![Openshift Subscription OK](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/Active-Subscription.PNG)
 
-5. Création d'un projet
+##### 6. Création d'un projet
 
+<p align="center">
 ![Openshift Application Space](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-create-project.PNG)
+</p>
 
-6. Choisir le type de projet
+##### 7. Choisir le type de projet
 
 ![Openshift Project Type](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-type.PNG)
 
-7. Configurer le projet
+##### 8. Configurer le projet
 
 ![Openshift Project Config](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-config.PNG)
 
-7. Valider les information
+##### 9. Valider les information
 
 ![Openshift Project Confirm](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-project-result.PNG)
 
-8. Construire l'application et la déployer
+##### 10. Construire l'application et la déployer
 
 ![Openshift App Deployed](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-app-deploy.PNG)
 
-9. Accéder à l'application en ligne
+##### 11. Accéder à l'application en ligne
 
 http://resto-app-resto-app.1d35.starter-us-east-1.openshiftapps.com/#!/
+
+![Openshift App Online](https://github.com/Abdoulmagid/TP_CLCO_2018/blob/master/img/openshift-app-online.PNG)
