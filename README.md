@@ -411,7 +411,7 @@ architecture. Openshift propose deux alternatives pour déployer son application
 * **Openshift Starter** :  
 Cette solution est gratuite et permet de créer deux conteneurs de Kubernetes de 512 MB chacun. Cette solution est adéquate 
 pour la réalisation des tests. Elle présente cependant quelques inconvénients dus aux contraintes imposées par la plateforme à savoir :
-lorsque l'application est démeure inactive après 30 minutes, les ressources sont revoquées. 
+lorsque l'application est inactive après 30 minutes, les ressources lui sont revoquées. 
 
 Pour pallier à ce problème, nous avons ajouté au serveur un scheduler qui,chaque 10 minutes affiche un message log, afin de garder le serveur actif.
 
